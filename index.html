@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vistal</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Общи стилове */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+        }
+
+        .phone {
+            position: absolute;
+            right: 1em;
+            font-size: 1.2em;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 2em; /* Увеличаваме разстоянието между линковете */
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            display: none; /* Всички секции са скрити по подразбиране */
+            padding: 2em;
+            margin: 1em 0;
+        }
+
+        section.active {
+            display: block; /* Показва само активната секция */
+        }
+
+        section h2 {
+            font-size: 1.8em;
+            margin-bottom: 0.5em;
+        }
+
+        section p {
+            font-size: 1.2em;
+        }
+
+        section ul {
+            list-style-type: disc;
+            margin-left: 2em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Vistal</h1>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('about')">За нас</a></li>
+            <li><a href="#" onclick="showSection('services')">Услуги</a></li>
+            <li><a href="#" onclick="showSection('projects')">Проекти</a></li>
+            <li><a href="#" onclick="showSection('team')">Екип</a></li>
+            <li><a href="#" onclick="showSection('contact')">Контакт</a></li>
+        </ul>
+    </nav>
+    <span class="phone">0877076131</span> <!-- Телефонният номер в десния ъгъл -->
+</header>
+
+<!-- Секциите, които ще се показват или скриват -->
+<section id="about">
+    <h2>За нас</h2>
+    <p>Това е информация за компанията.</p>
+</section>
+
+<section id="services">
+    <h2>Услуги</h2>
+    <p>Описание на услугите, които предлагаме.</p>
+</section>
+
+<section id="projects">
+    <h2>Проекти</h2>
+    <p>Информация за проектите, които сме реализирали.</p>
+</section>
+
+<section id="team">
+    <h2>Екип</h2>
+    <p>Информация за екипа ни.</p>
+</section>
+
+<section id="contact">
+    <h2>Контакт</h2>
+    <p>Начини за контакт с нас.</p>
+</section>
+
+<script>
+    // Функция за показване на съответната секция
+    function showSection(sectionId) {
+        // Първо, скриваме всички секции
+        let sections = document.querySelectorAll('section');
+        sections.forEach(function(section) {
+            section.classList.remove('active');
+        });
+
+        // След това, показваме само избраната секция
+        let activeSection = document.getElementById(sectionId);
+        activeSection.classList.add('active');
+    }
+
+    // Покажи първата секция ("За нас") при зареждане на страницата
+    window.onload = function() {
+        showSection('about');
+    }
+</script>
+
+</body>
+</html>
